@@ -12,7 +12,8 @@ useHead({
 })
 
 const title = 'Uni Matokeo'
-const description = 'A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours.'
+const description = 'Check your university or college academic results in seconds. Pick your institution, enter your admission number, and view your official report card — no login, no queueing at the notice board.'
+
 
 useSeoMeta({
   title,
