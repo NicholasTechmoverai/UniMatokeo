@@ -55,7 +55,7 @@ useSeoMeta({
       </template>
 
       <template #right>
-        <UButton to="https://github.com/NicholasTechmoverai" target="_blank" icon="i-simple-icons-github"
+        <UButton to="https://github.com/" target="_blank" icon="i-simple-icons-github"
           aria-label="GitHub" color="neutral" variant="ghost" />
       </template>
     </UFooter>
