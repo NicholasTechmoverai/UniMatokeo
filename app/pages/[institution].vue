@@ -36,12 +36,15 @@ const yearOptions = [
     { label: 'Year 1', value: 1 },
     { label: 'Year 2', value: 2 },
     { label: 'Year 3', value: 3 },
-    { label: 'Year 4', value: 4 }
+    { label: 'Year 4', value: 4 },
+    { label: 'Year 5', value: 5 }
+
 ]
 
 const semesterOptions = [
     { label: 'Semester 1', value: 1 },
     { label: 'Semester 2', value: 2 },
+    { label: 'Semester 3 (if tri sem)', value: 3 },
     { label: 'Whole Year', value: 'whole' }
 ]
 
@@ -81,8 +84,8 @@ async function submit() {
 function reset() {
     isReady.value = false
     url.value = ''
-    filters.admission=''
-    
+    filters.admission = ''
+
 }
 
 const otherInstitutions = computed(() =>
@@ -166,7 +169,8 @@ const otherInstitutions = computed(() =>
                                     New search
                                 </UButton>
                                 <UModal fullscreen title="Results Reports fullscreen">
-                                    <UButton label="Full" color="neutral" icon="i-lucide-maximize-2" size="xs"  variant="subtle" />
+                                    <UButton label="Full" color="neutral" icon="i-lucide-maximize-2" size="xs"
+                                        variant="subtle" />
 
                                     <template #body>
                                         <WebsiteFrame :src="url"
@@ -184,7 +188,7 @@ const otherInstitutions = computed(() =>
                     <!-- Other institutions -->
                     <UPageCard title="Other institutions">
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                            <UButton v-for="inst in otherInstitutions" :key="inst.key" :to="`/${inst.key}`"
+                            <UButton v-for="inst in otherInstitutions" :key="inst.key" :to="`/${inst.key}/`"
                                 variant="soft" color="neutral" :icon="inst.icon" class="justify-start">
                                 {{ inst.shortLabel }}
                             </UButton>

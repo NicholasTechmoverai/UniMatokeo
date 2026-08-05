@@ -77,7 +77,7 @@ const steps = [
         <ULink
           v-for="inst in institutions"
           :key="inst.key"
-          :to="`/${inst.key}`"
+          :to="`/${inst.key}/`"
           class="group"
         >
           <UPageCard class="h-full transition-colors group-hover:border-primary">
