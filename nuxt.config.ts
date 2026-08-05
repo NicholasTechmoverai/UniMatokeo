@@ -8,7 +8,20 @@ export default defineNuxtConfig({
   ],
 
   sitemap: {
-    sources: ['/api/sitemap']
+    siteUrl: 'https://uni-matokeo.vercel.app',
+    exclude: ['/api/**'],
+    urls: [
+      {
+        loc: '/',
+        changefreq: 'daily',
+        priority: 1.0
+      },
+      ...institutions.map(inst => ({
+        loc: `/${inst.key}`,
+        changefreq: 'weekly',
+        priority: 0.8
+      }))
+    ]
   },
 
   devtools: {
