@@ -81,6 +81,8 @@ async function submit() {
 function reset() {
     isReady.value = false
     url.value = ''
+    filters.admission=''
+    
 }
 
 const otherInstitutions = computed(() =>
@@ -158,11 +160,23 @@ const otherInstitutions = computed(() =>
                     <div v-else class="space-y-3">
                         <div class="flex items-center justify-between">
                             <p class="text-sm font-medium text-highlighted">Report</p>
-                            <UButton variant="ghost" color="neutral" size="xs" icon="i-lucide-rotate-ccw"
-                                @click="reset">
-                                New search
-                            </UButton>
+                            <div class="space-x-2">
+                                <UButton variant="subtle" color="neutral" size="xs" icon="i-lucide-rotate-ccw"
+                                    @click="reset">
+                                    New search
+                                </UButton>
+                                <UModal fullscreen title="Results Reports fullscreen">
+                                    <UButton label="Full" color="neutral" icon="i-lucide-maximize-2" size="xs"  variant="subtle" />
+
+                                    <template #body>
+                                        <WebsiteFrame :src="url"
+                                            class="h-[70vh] rounded-lg overflow-hidden border border-default" />
+                                    </template>
+                                </UModal>
+                            </div>
+
                         </div>
+
 
                         <WebsiteFrame :src="url" class="h-[70vh] rounded-lg overflow-hidden border border-default" />
                     </div>
