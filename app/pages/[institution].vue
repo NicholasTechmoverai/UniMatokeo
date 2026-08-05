@@ -137,7 +137,22 @@ const otherInstitutions = computed(() =>
     institutions.filter((i) => i.key !== institution.value),
 )
 
+const appConfig = useAppConfig()
 
+watch(
+    () => route.params.institution,
+    (institutionKey) => {
+        if (typeof institutionKey === 'string') {
+            const institution = institutions.find(i => i.key === institutionKey)
+            if (institution) {
+                appConfig.ui.colors.primary = institution.color
+            } else {
+                appConfig.ui.colors.primary = 'yellow' // Default fallback
+            }
+        }
+    },
+    { immediate: true }
+)
 </script>
 
 <template>
